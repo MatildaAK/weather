@@ -1,13 +1,11 @@
+import SearchBarInput from "./SearchBarInput";
 
 const SearchBar = () => {
-
-    return (
-        <>
-            <input type="text" placeholder="Sök" />
-            <button type="button"></button>
-        </>
-    )
-
-}
+  return (
+    <>
+      <SearchBarInput />
+    </>
+  );
+};
 
 export default SearchBar;
