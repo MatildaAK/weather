@@ -1,5 +1,10 @@
 const TodaysWeather = () => {
-    // return ();
+    
+    return (
+        <>
+        <p>Daily Forecast</p>
+        </>
+    )
 };
 
 export default TodaysWeather;
