@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
+import React from 'react';
 
-const API_KEY = "4c76b2e871b13a85d325f7cd921c5de2";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
 const getGeoLocation = (infoType: any, searchParams: any) => {
