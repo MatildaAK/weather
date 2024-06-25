@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import HomePage from './Pages/HomePage/HomePage';
-import DailyWeather from './components/DailyWeather/DailyWeather';
-import TodaysWeather from './components/TodaysWeather/TodaysWeather';
+// import HomePage from './Pages/HomePage/HomePage';
+// import DailyWeather from './components/DailyWeather/DailyWeather';
+// import TodaysWeather from './components/TodaysWeather/TodaysWeather';
 
 const router = createBrowserRouter([
   {
@@ -15,11 +15,11 @@ const router = createBrowserRouter([
         <App />
       </>
     ),
-    children: [
-      { path: "", element: <HomePage />},
-      { path: "daily", element: <DailyWeather />},
-      { path: "today", element: <TodaysWeather />}
-    ]
+    // children: [
+    //   { path: "", element: <HomePage />},
+    //   { path: "daily", element: <DailyWeather />},
+    //   { path: "today", element: <TodaysWeather />}
+    // ]
   },
 ]);
 

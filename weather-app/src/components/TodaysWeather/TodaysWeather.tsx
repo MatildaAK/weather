@@ -2,7 +2,7 @@ const TodaysWeather = () => {
     
     return (
         <>
-        <p>Daily Forecast</p>
+        <p>Hourly Forecast</p>
         </>
     )
 };
