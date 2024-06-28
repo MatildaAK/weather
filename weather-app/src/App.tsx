@@ -9,7 +9,7 @@ import TimeAndLocation from "./components/TimeAndLocation/TimeAndLocation";
 import Header from "./components/Header/Header";
 
 const App = () => {
-  const [query, setQuery] = useState({ q: "Stockholm" });
+  const [query, setQuery] = useState({ q: "helsingborg" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
@@ -26,10 +26,10 @@ const App = () => {
 
   return (
     <>
-      <div className="text-white bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
+      <div className="mx-auto px-10 py-5 text-white bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
         <Header />
 
-        <main className="m-0 b-0 box-border grid">
+        <main className="grid">
           <div className="min-h-screen">
             <SearchBar />
             {weather && (

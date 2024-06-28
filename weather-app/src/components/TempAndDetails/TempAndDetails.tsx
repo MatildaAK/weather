@@ -39,7 +39,7 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
     {
       id: 1,
       Icon: FaThermometerEmpty,
-      title: "Reel feel",
+      title: "Feels like",
       value: `${feels_like.toFixed()}°`,
     },
     {
