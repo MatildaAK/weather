@@ -59,12 +59,13 @@ const formatCurrent = (data: any) => {
   };
 };
 
-const formatForecastWeather = (secs: any, offset: any, data: any) => {
+const formatForecastWeather = (secs: number, offset: number, data: any) => {
   //hourly
   const hourly = data
   .filter((f: { dt: number; }) => f.dt > secs)
   .map((f: any) => ({ 
-    temp: f.main.temp, title: formatToLocalTime(f.dt, offset, "hh:mm a"), 
+    temp: f.main.temp, 
+    title: formatToLocalTime(f.dt, offset, "hh:mm a"), 
     icon: iconUrlFromCode(f.weather[0].icon), 
     data: f.dt_txt,
   }))
@@ -72,7 +73,8 @@ const formatForecastWeather = (secs: any, offset: any, data: any) => {
 
   //daily
   const daily = data.filter((f: { dt_txt: string; }) => f.dt_txt.slice(-8) === "00:00:00").map((f: any) => ({
-    temp: f.main.temp, title: formatToLocalTime(f.dt, offset, "ccc"), 
+    temp: f.main.temp, 
+    title: formatToLocalTime(f.dt, offset, "ccc"), 
     icon: iconUrlFromCode(f.weather[0].icon), 
     data: f.dt_txt,
   }))
