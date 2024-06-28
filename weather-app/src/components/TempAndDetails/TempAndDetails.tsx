@@ -84,8 +84,8 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
   ];
   return (
     <>
-      <div className="mx-10 text-white">
-        <div className="flex items-center justify-center py-6 text-xl">
+      <div className="mx-10 backdrop-blur-sm bg-blue-100/30 rounded-sm mt-4">
+        <div className="flex items-center justify-center py-4 text-xl">
           <p>{details}</p>
         </div>
 
@@ -104,7 +104,7 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
                   {`${title}: `}{" "}
                   <span className="font-medium ml-1">{value}</span>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -123,7 +123,7 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
                     <span className="font-medium ml-1">{value}</span>
                   </p>
                 </div>
-              )
+              );
             })}
           </div>
         </div>

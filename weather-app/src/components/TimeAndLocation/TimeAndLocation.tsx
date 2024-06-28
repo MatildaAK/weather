@@ -8,22 +8,20 @@ type Time = {
 
 type TimeAndLocationProps = {
   weather: Time;
-}
+};
 
 const TimeAndLocation: React.FC<TimeAndLocationProps> = ({
-  weather: { 
-    formattedLocalTime, 
-    name, 
-    country 
-  },
+  weather: { formattedLocalTime, name, country },
 }) => {
   return (
     <>
       <div>
-        <div className="flex justify-center text-white">{formattedLocalTime}</div>
+        <div className="flex items-center my-6 justify-center">
+          {formattedLocalTime}
+        </div>
 
-        <div className="flex justify-center mt-6 text-white">
-          <p>{`${name}, ${country}`}</p>
+        <div className="flex justify-center items-center mt-6">
+          <p className="text-3xl font-medium">{`${name}, ${country}`}</p>
         </div>
       </div>
     </>
