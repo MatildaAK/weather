@@ -118,7 +118,7 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
                   className="flex font-light text-sm items-center justify-center ml-6"
                 >
                   <Icon size={30} />
-                  <p className="fint-light ml-1">
+                  <p className="font-light ml-1">
                     {`${title}: `}{" "}
                     <span className="font-medium ml-1">{value}</span>
                   </p>
