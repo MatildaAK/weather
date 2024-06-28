@@ -28,6 +28,9 @@ const App = () => {
     getWeather();
   }, [query, units]);
 
+  console.log(setQuery);
+  console.log(setUnits);
+
 
   return (
     <>
@@ -42,7 +45,7 @@ const App = () => {
                 <TimeAndLocation weather={weather} />
                 <TempAndDetails weather={weather} />
                 <TodaysWeather title='3 hour forecast' data={hourlyData} />
-                <DailyWeather />
+                <DailyWeather title='5 days forecast' data={dailyData} />
               </>
             )}
           </div>
