@@ -8,11 +8,11 @@ const DailyWeather: React.FC<TodaysWeatherProps> = ({ title, data }) => {
   return (
     <>
       <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm">
-        <div className="flex items-center justify-start mt-6">
+        <div className="flex items-center justify-start mt-6 p-2">
           <p className="font-medium uppercase">{title} </p>
         </div>
         <hr className="my-1" />
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mx-2">
           {data.map((d, index) => {
             return (
               <div
