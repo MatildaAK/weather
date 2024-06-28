@@ -6,6 +6,7 @@ import TodaysWeather from "./components/TodaysWeather/TodaysWeather";
 import DailyWeather from "./components/DailyWeather/DailyWeather";
 import TempAndDetails from "./components/TempAndDetails/TempAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation/TimeAndLocation";
+import Header from "./components/Header/Header";
 
 const App = () => {
   const [query, setQuery] = useState({ q: "Stockholm" });
@@ -23,24 +24,25 @@ const App = () => {
     getWeather();
   }, [query, units]);
 
-
   return (
     <>
-      {/* <Header /> */}
+      <div className="text-white bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
+        <Header />
 
-      <main className="m-0 b-0 box-border grid">
-        <div className="min-h-screen bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
-          <SearchBar />
-          {weather && (
-            <>
-              <TimeAndLocation weather={weather} />
-              <TempAndDetails weather={weather} />
-              <TodaysWeather />
-              <DailyWeather />
-            </>
-          )}
-        </div>
-      </main>
+        <main className="m-0 b-0 box-border grid">
+          <div className="min-h-screen">
+            <SearchBar />
+            {weather && (
+              <>
+                <TimeAndLocation weather={weather} />
+                <TempAndDetails weather={weather} />
+                <TodaysWeather />
+                <DailyWeather />
+              </>
+            )}
+          </div>
+        </main>
+      </div>
     </>
   );
 };
