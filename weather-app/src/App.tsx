@@ -29,7 +29,7 @@ const App = () => {
       {/* <Header /> */}
 
       <main className="m-0 b-0 box-border grid">
-        <div className="min-h-screen m-6 bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
+        <div className="min-h-screen bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
           <SearchBar />
           {weather && (
             <>
