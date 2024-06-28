@@ -2,7 +2,7 @@ const TodaysWeather = () => {
   const data = [1, 2, 3, 4, 5];
   return (
     <>
-      <div>
+      <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm">
         <div className="flex items-center justify-start mt-6">
           <p className="font-medium uppercase">3 hour forecast </p>
         </div>
@@ -20,7 +20,7 @@ const TodaysWeather = () => {
                   alt="Weather icon"
                   className="w-12 my-1"
                 />
-                <p className="font-medium">12</p>
+                <p className="font-medium">12°</p>
               </div>
             );
           })}
