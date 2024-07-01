@@ -8,6 +8,10 @@ import TempAndDetails from "./components/TempAndDetails/TempAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation/TimeAndLocation";
 import Header from "./components/Header/Header";
 
+interface Weather {
+  temp: number;
+}
+
 const App = () => {
   const [query, setQuery] = useState({ q: "helsingborg" });
   const [units, setUnits] = useState("metric");
@@ -19,7 +23,7 @@ const App = () => {
     await getFormattedWeatherData({ ...query, units }).then((data) => {
       setWeather(data);
       setHourlyData(data.hourly);
-      setDailyData(data.daily)
+      setDailyData(data.daily);
       console.log(data);
     });
   };
@@ -28,14 +32,20 @@ const App = () => {
     getWeather();
   }, [query, units]);
 
-  console.log(setQuery);
   console.log(setUnits);
+
+  const formatBackground = (weather: Weather | null, units: string): string=> {
+    if (!weather) return "from-cyan-500 via-violet-500 to-blue-500";
+    const threshold = units === "metric" ? 20 : 60;
+    if(weather.temp <= threshold) return "from-cyan-500 via-violet-500 to-blue-500";
+    return "from-yellow-600 to-orange-700";
+  }
 
 
   return (
     <>
-      <div className="text-white bg-gradient-to-t from-cyan-500 via-violet-500 to-blue-500">
-        <Header />
+      <div className={`text-white bg-gradient-to-t ${formatBackground(weather, units)}`}>
+        <Header setQuery={setQuery} />
 
         <main className="grid px-10 py-5">
           <div className="min-h-screen">
