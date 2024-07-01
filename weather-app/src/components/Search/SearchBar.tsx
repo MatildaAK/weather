@@ -1,9 +1,15 @@
 import SearchBarInput from "./SearchBarInput";
 
-const SearchBar = () => {
+interface SearchProps {
+  setQuery: (query: { q: string } | { lat: number; lon: number }) => void;
+  setUnits: (unit: string) => void;
+}
+
+
+const SearchBar: React.FC<SearchProps> = ({ setQuery, setUnits }) => {
   return (
     <>
-      <SearchBarInput />
+      <SearchBarInput setQuery={setQuery} setUnits={setUnits} />
     </>
   );
 };

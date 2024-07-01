@@ -12,8 +12,10 @@ interface Weather {
   temp: number;
 }
 
+type QueryParams = { q: string } | { lat: number; lon: number };
+
 const App = () => {
-  const [query, setQuery] = useState({ q: "helsingborg" });
+  const [query, setQuery] = useState<QueryParams>({ q: "helsingborg" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [hourlyData, setHourlyData] = useState<any[]>([]);
@@ -32,8 +34,6 @@ const App = () => {
     getWeather();
   }, [query, units]);
 
-  console.log(setUnits);
-
   const formatBackground = (weather: Weather | null, units: string): string=> {
     if (!weather) return "from-cyan-500 via-violet-500 to-blue-500";
     const threshold = units === "metric" ? 20 : 60;
@@ -49,7 +49,7 @@ const App = () => {
 
         <main className="grid px-10 py-5">
           <div className="min-h-screen">
-            <SearchBar />
+            <SearchBar setQuery={setQuery} setUnits={setUnits} />
             {weather && (
               <>
                 <TimeAndLocation weather={weather} />
