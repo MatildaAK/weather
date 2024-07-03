@@ -53,7 +53,7 @@ const App = () => {
             {weather && (
               <>
                 <TimeAndLocation weather={weather} />
-                <TempAndDetails weather={weather} />
+                <TempAndDetails weather={weather} units={units}/>
                 <TodaysWeather title='3 hour forecast' data={hourlyData} />
                 <DailyWeather title='5 days forecast' data={dailyData} />
               </>
