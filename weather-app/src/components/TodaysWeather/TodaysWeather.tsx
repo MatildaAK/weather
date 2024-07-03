@@ -1,14 +1,14 @@
-// import React from "react";
+import WeatherChart from "../WeatherDiagram/WeatherChart";
 
 interface TodaysWeatherProps {
   title: string;
-  data: { temp: number; title: string; icon: string; data: string; }[];
+  data: { temp: number; title: string; icon: string; data: string }[];
 }
 
 const TodaysWeather: React.FC<TodaysWeatherProps> = ({ title, data }) => {
   return (
     <>
-      <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm m-4 pb-4">
+      <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm m-4">
         <div className="flex items-center justify-start mt-6 p-2">
           <p className="font-medium uppercase">{title}</p>
         </div>
@@ -26,6 +26,9 @@ const TodaysWeather: React.FC<TodaysWeatherProps> = ({ title, data }) => {
               </div>
             );
           })}
+        </div>
+        <div className="mt-4 bg-blue-100/50">
+          <WeatherChart data={data} />
         </div>
       </div>
     </>
