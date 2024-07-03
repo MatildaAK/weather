@@ -20,7 +20,7 @@ const iconUrlFromCode = (icon: any) =>
 const formatToLocalTime = (
   secs: any,
   offset: any,
-  format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
+  format = "cccc, dd LLL yyyy' | Local time: 'HH:mm"
 ) => DateTime.fromSeconds(secs + offset, { zone: "utc" }).toFormat(format);
 
 const formatCurrent = (data: any) => {
@@ -46,8 +46,8 @@ const formatCurrent = (data: any) => {
     humidity,
     name,
     country,
-    sunrise: formatToLocalTime(sunrise, timezone, "hh:mm a"),
-    sunset: formatToLocalTime(sunset, timezone, "hh:mm a"),
+    sunrise: formatToLocalTime(sunrise, timezone, "HH:mm"),
+    sunset: formatToLocalTime(sunset, timezone, "HH:mm"),
     speed,
     details,
     icon: iconUrlFromCode(icon),
@@ -65,7 +65,7 @@ const formatForecastWeather = (secs: number, offset: number, data: any) => {
   .filter((f: { dt: number; }) => f.dt > secs)
   .map((f: any) => ({ 
     temp: f.main.temp, 
-    title: formatToLocalTime(f.dt, offset, "hh:mm a"), 
+    title: formatToLocalTime(f.dt, offset, "HH:mm"), 
     icon: iconUrlFromCode(f.weather[0].icon), 
     data: f.dt_txt,
   }))
