@@ -62,7 +62,7 @@ const App = () => {
       <div className={`text-white bg-gradient-to-t ${formatBackground(weather, units)}`}>
         <Header setQuery={setQuery} />
 
-        <main className="grid px-10 py-5">
+        <main className="grid md:px-10 md:py-5">
           <div className="min-h-screen">
             <SearchBar setQuery={setQuery} setUnits={setUnits} />
             {weather && (

@@ -86,12 +86,12 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
   ];
   return (
     <>
-      <div className="mx-10 backdrop-blur-sm bg-blue-100/30 rounded-sm mt-4">
+      <div className="md:mx-10 backdrop-blur-sm bg-blue-100/30 rounded-sm m-4">
         <div className="flex items-center justify-center py-4 text-xl">
           <p>{details}</p>
         </div>
 
-        <div className="flex flex-row items-center justify-between py-3">
+        <div className="flex flex-row items-center justify-evenly md:justify-between py-3">
           <img src={icon} alt="weather icon" className="w-20" />
           <p className="text-5xl">{`${temp.toFixed()}°`}</p>
 
@@ -111,18 +111,18 @@ const TempAndDetails: React.FC<TempAndDetailsProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-row items-center justify-center space-x-10 text-sm py-3">
+        <div className="flex flex-row items-center justify-center space-x-10 text-sm p-3">
           <div className="flex flex-row items-center">
             {horizontalDetails.map(({ id, Icon, title, value }) => {
               return (
                 <div
                   key={id}
-                  className="flex font-light text-sm items-center justify-center ml-6"
+                  className="flex font-light text-sm items-center justify-center "
                 >
                   <Icon size={30} />
-                  <p className="font-light ml-1">
+                  <p className="font-thin md:font-light ml-1">
                     {`${title}: `}{" "}
-                    <span className="font-medium ml-1">{value}</span>
+                    <span className="font-light md:font-medium ml-1">{value}</span>
                   </p>
                 </div>
               );
