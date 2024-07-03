@@ -8,12 +8,12 @@ interface TodaysWeatherProps {
 const TodaysWeather: React.FC<TodaysWeatherProps> = ({ title, data }) => {
   return (
     <>
-      <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm">
+      <div className="backdrop-blur-sm bg-blue-100/30 rounded-sm m-4 pb-4">
         <div className="flex items-center justify-start mt-6 p-2">
           <p className="font-medium uppercase">{title}</p>
         </div>
         <hr className="my-1" />
-        <div className="flex items-center justify-between mx-2">
+        <div className="flex flex-row items-center justify-evenly md:justify-between mx-2">
           {data.map((d, index) => {
             return (
               <div
