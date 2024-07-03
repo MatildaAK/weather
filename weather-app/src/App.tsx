@@ -7,12 +7,22 @@ import DailyWeather from "./components/DailyWeather/DailyWeather";
 import TempAndDetails from "./components/TempAndDetails/TempAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation/TimeAndLocation";
 import Header from "./components/Header/Header";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Weather {
   temp: number;
 }
 
 type QueryParams = { q: string } | { lat: number; lon: number };
+
+function isQueryWithQ(params: QueryParams): params is { q: string } {
+  return (params as { q: string }).q !== undefined;
+}
+
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const App = () => {
   const [query, setQuery] = useState<QueryParams>({ q: "helsingborg" });
@@ -21,8 +31,13 @@ const App = () => {
   const [hourlyData, setHourlyData] = useState<any[]>([]);
   const [dailyData, setDailyData] = useState<any[]>([]);
 
+
   const getWeather = async () => {
+    const cityName = isQueryWithQ(query) ? query.q : "current location";
+    toast.info(`Fetching weather data for ${capitalizeFirstLetter(cityName)}`);
+
     await getFormattedWeatherData({ ...query, units }).then((data) => {
+      toast.success(`Fetched weather data for ${data.name}, ${data.country}`);
       setWeather(data);
       setHourlyData(data.hourly);
       setDailyData(data.daily);
@@ -60,6 +75,8 @@ const App = () => {
             )}
           </div>
         </main>
+
+        <ToastContainer autoClose={2500} hideProgressBar={true} theme="colored" />
       </div>
     </>
   );
